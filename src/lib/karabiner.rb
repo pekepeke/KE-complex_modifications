@@ -42,6 +42,16 @@ module Karabiner
       '^com\.apple\.loginwindow$',
     ],
 
+    :word => [
+      '^com\.microsoft\.Word$',
+    ],
+    :excel => [
+      '^com\.microsoft\.Excel$',
+    ],
+    :powerpoint => [
+      '^com\.microsoft\.Powerpoint$',
+    ],
+
     :microsoft_office => [
       '^com\.microsoft\.Excel$',
       '^com\.microsoft\.Powerpoint$',
@@ -136,6 +146,9 @@ module Karabiner
     'git_gui' => BUNDLE_IDENTIFERS[:git_gui],
     'jetbrains_ide' => BUNDLE_IDENTIFERS[:jetbrains_ide],
     'loginwindow' => BUNDLE_IDENTIFERS[:loginwindow],
+    'word' => BUNDLE_IDENTIFERS[:word],
+    'excel' => BUNDLE_IDENTIFERS[:excel],
+    'powerpoint' => BUNDLE_IDENTIFERS[:powerpoint],
     'microsoft_office' => BUNDLE_IDENTIFERS[:microsoft_office],
     'remote_desktop' => BUNDLE_IDENTIFERS[:remote_desktop],
     'terminal' => BUNDLE_IDENTIFERS[:terminal],
