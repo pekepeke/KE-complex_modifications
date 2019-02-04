@@ -15,7 +15,7 @@ def main
     'rules' => [
       rule_backslash,
       rule_terminal,
-    ] + rules_excel
+    ] + rules_excel + rules_app
   )
 end
 
@@ -129,5 +129,34 @@ def rules_excel
   }]
 end
 
+def rules_app
+  [{
+    'description' => 'Specific App Key Mappings',
+    'manipulators' => [
+      {
+        "from": from("1", ['option', 'command']),
+        "to": [{
+          'shell_command': "osascript -e 'tell app \"MacVim\"' -e 'activate' -e end"
+        }],
+        "type": "basic",
+        "conditions" => [ Karabiner.frontmost_application_unless(%w[macvim]), ]
+      }, {
+        "from": from("2", ['option', 'command']),
+        "to": [{
+          'shell_command': "osascript -e 'tell app \"iTerm2\"' -e 'activate' -e end"
+        }],
+        "type": "basic",
+        "conditions" => [ Karabiner.frontmost_application_unless(%w[terminal]), ]
+      }, {
+        "from": from("3", ['option', 'command']),
+        "to": [{
+          'shell_command': "osascript -e 'tell app \"Google Chrome\"' -e 'activate' -e end"
+        }],
+        "type": "basic",
+        "conditions" => [ Karabiner.frontmost_application_unless(%w[browser]), ]
+      }
+    ]
+  }]
+end
 
 main
