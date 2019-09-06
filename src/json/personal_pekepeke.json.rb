@@ -64,7 +64,8 @@ def rule_terminal
   {
     'description' => 'LeaveInsMode with EISUU(Terminal)',
     'manipulators' =>
-    [from("[", ["control"]), from('escape')].map { |from_key|
+    # "open_bracket"
+    [from("close_bracket", ["control"]), from('escape')].map { |from_key|
       {
         "from": from_key,
         "to": to([['escape'], ['japanese_eisuu']]),
@@ -105,7 +106,7 @@ def rules_excel
         "type": "basic",
         "conditions" => [ Karabiner.frontmost_application_if(%w[excel]), ]
       }, {
-        "from": from("command_left", []),
+        "from": from("left_command", []),
         "to":  to([['f10', ['shift']]]),
         "type": "basic",
         "conditions" => [ Karabiner.frontmost_application_if(%w[excel]), ]
@@ -139,7 +140,7 @@ def rules_app
           'shell_command': "osascript -e 'tell app \"MacVim\"' -e 'activate' -e end"
         }],
         "type": "basic",
-        "conditions" => [ Karabiner.frontmost_application_unless(%w[macvim]), ]
+        "conditions" => [ Karabiner.frontmost_application_unless(%w[vi]), ]
       }, {
         "from": from("2", ['option', 'command']),
         "to": [{
