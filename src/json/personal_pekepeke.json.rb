@@ -106,7 +106,7 @@ def rules_excel
         "type": "basic",
         "conditions" => [ Karabiner.frontmost_application_if(%w[excel]), ]
       }, {
-        "from": from("left_command", []),
+        "from": from("right_command", []),
         "to":  to([['f10', ['shift']]]),
         "type": "basic",
         "conditions" => [ Karabiner.frontmost_application_if(%w[excel]), ]
